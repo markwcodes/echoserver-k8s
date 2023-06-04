@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deployment
+  namespace: echo-server
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: echo-server
+  template:
+    metadata:
+      labels:
+        app: echo-server
+    spec:
+      containers:
+      - image: jmalloc/echo-server
+        imagePullPolicy: Always
+        name: echo-server
+        ports:
+        - containerPort: 8080
+          name: http-port
+          protocol: TCP
