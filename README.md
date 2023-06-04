@@ -13,5 +13,5 @@ The deployment echoes the request header data from your browser back at you, thu
 ## Setup
 
 1. Install the cert-manager CRDs and resources following [this guide](https://cert-manager.io/docs/installation/).
-2. Enter your DO key in `do-secret.yml`
+2. Enter your DigitalOcean access key in `do-secret.yml`
 3. Deploy with `kubectl -n echo-server apply -f .`
