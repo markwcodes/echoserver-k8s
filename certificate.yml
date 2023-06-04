@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: echo.wilson.codes
+  # Cert-Manager will put the resulting Secret in the same Kubernetes namespace as the Certificate.
+  namespace: echo-server
+spec:
+  # Secret name to create, where the private key and certificate should be stored.
+  secretName: letsencrypt-echo-domain-private
+  # What Issuer to use for getting the certificate.
+  issuerRef:
+    name: letsencrypt-echo-domain
+    kind: Issuer
+    group: cert-manager.io
+  # Common name to be used on the Certificate.
+  commonName: "echo.wilson.codes"
+  # List of DNS subjectAltNames to be set on the Certificate.
+  dnsNames:
+    - "echo.wilson.codes"
